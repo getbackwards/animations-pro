@@ -22,4 +22,6 @@ But by switching to the states (even though they are not defined) will trigger t
 <div
   *ngFor="let testResult of testResults"
   @listState
+  (@listState.start)="onAnimationStarted($event)"
+  (@listState.done)="onAnimationDone($event)"
   class="test-result">{{ testResult }}</div>
