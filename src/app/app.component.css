@@ -1,0 +1,14 @@
+button {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 1px solid #cdcdcd;
+}
+
+p {
+  border: 1px solid #cdcdcd;
+  border-radius: 0.25rem;
+  background-color: rgba(137, 205, 250, 0.25);
+  padding: 10px;
+  width: 50%;
+}

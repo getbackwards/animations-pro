@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<button (click)="isShown = !isShown">Toggle Element</button>
+<p
+  @showState
+  *ngIf="isShown">Even if you’re on the right track, you’ll get run over if you just sit there.</p>
+
+<button (click)="width = width - 50">Shrink</button>
+<button (click)="animate = true">Animate me</button>
+<p
+  [@animateState]="animate ? 'animated' : 'noAnimation'"
+  [ngStyle]="{'width.px': width}">shrink me</p>
+
+<!-- ###
+It doesn’t matter what names you use for the state here, they do not exist.
+
+But by switching to the states (even though they are not defined) will trigger the animation because it is set up to animate whenever something changes (see animations.ts, transition('* => *').
+
+!IMPORTANT:: You don't need to define the states for this
+
+ ### -->
