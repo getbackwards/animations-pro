@@ -1,4 +1,4 @@
-import {animate, group, state, style, transition, trigger} from '@angular/animations';
+import {animate, group, keyframes, state, style, transition, trigger} from '@angular/animations';
 
 export const showStateTrigger = trigger('showState', [
 // ### These are 2 different commented out bits ### //
@@ -42,14 +42,25 @@ export const listStateTrigger = trigger('listState', [
       'background-color' : '#fff'
     }),
     group([
-      animate(200, style({
+      animate(1000, style({
         opacity: 0.7
       })),
-      animate(1000, style({
-        backgroundColor: 'tomato'
-      }))
+      animate('5000ms ease-out', keyframes([
+        style({
+          'background-color': '#fff',
+          offset: 0
+        }),
+        style({
+          'background-color' : 'tomato',
+          offset: 0.8
+        }),
+        style({
+          backgroundColor: 'rgb(121, 173, 40)',
+          offset: 1
+        })
+      ]))
     ]),
-    animate(5000, style({
+    animate(300, style({
       backgroundColor: 'lightblue'
     }))
   ]),
@@ -57,3 +68,36 @@ export const listStateTrigger = trigger('listState', [
     opacity: 0
   })))
 ]);
+// If you define a timing function and an offset Angular mixies them
+
+// Below is before defining the offset as above
+// export const listStateTrigger = trigger('listState', [
+//   transition(':enter', [ // alias for void => shown
+//     style({
+//       opacity: 0,
+//       'background-color' : '#fff'
+//     }),
+//     group([
+//       animate(1000, style({
+//         opacity: 0.7
+//       })),
+//       animate('5000ms ease-out', keyframes([
+//         style({
+//           'background-color': '#fff'
+//         }),
+//         style({
+//           'background-color' : 'tomato'
+//         }),
+//         style({
+//           backgroundColor: 'rgb(121, 173, 40)'
+//         })
+//       ]))
+//     ]),
+//     animate(300, style({
+//       backgroundColor: 'lightblue'
+//     }))
+//   ]),
+//   transition(':leave', animate(300, style({ // :leave is an alias for shown => void
+//     opacity: 0
+//   })))
+// ]);
