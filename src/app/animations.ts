@@ -22,9 +22,11 @@ export const showStateTrigger = trigger('showState', [
   })))
 ]);
 
+// http://easings.net/#
+// http://cubic-bezier.com/
 export const animateStateTrigger = trigger('animateState', [
     transition('* => *', [
-      animate(400, style({
+      animate('4000ms cubic-bezier(1,.12,1,1)', style({
         width: 0
     })),
     animate(400, style({
