@@ -1,7 +1,7 @@
 button {
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #fff;
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
   border: 1px solid #cdcdcd;
 }
 
@@ -10,5 +10,14 @@ p {
   border-radius: 0.25rem;
   background-color: rgba(137, 205, 250, 0.25);
   padding: 10px;
+  width: 50%;
+}
+
+.test-result {
+  margin: 10px 0;
+  padding: 0.25rem;
+  border: 1px #cdcdcd solid;
+  border-radius: 0.25rem;
+  background-color: rgba(206, 225, 245, 0.44);
   width: 50%;
 }

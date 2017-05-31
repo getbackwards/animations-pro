@@ -1,17 +1,6 @@
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {animate, group, state, style, transition, trigger} from '@angular/animations';
 
 export const showStateTrigger = trigger('showState', [
-  // Technically this would still work because you don't need to define states to switch to them
-  // It is an overhead here though to set states that you don't use at all
-  // state('shown', style ({
-  //
-  // })),
-  // transition('void => shown', [
-  //   style({
-  //     opacity: 0
-  //   }),
-  //   animate(300)
-  // ]),
 // ### These are 2 different commented out bits ### //
   // transition('void => *', [
   //   style({
@@ -42,4 +31,27 @@ export const animateStateTrigger = trigger('animateState', [
       width: '*'
     }))
   ])
+]);
+
+export const listStateTrigger = trigger('listState', [
+  transition(':enter', [ // alias for void => shown
+    style({
+      opacity: 0,
+      'background-color' : '#fff'
+    }),
+    group([
+      animate(200, style({
+        opacity: 0.7
+      })),
+      animate(1000, style({
+        backgroundColor: 'tomato'
+      }))
+    ]),
+    animate(5000, style({
+      backgroundColor: 'lightblue'
+    }))
+  ]),
+  transition(':leave', animate(300, style({ // :leave is an alias for shown => void
+    opacity: 0
+  })))
 ]);

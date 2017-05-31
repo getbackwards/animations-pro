@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {animateStateTrigger, showStateTrigger} from './animations';
+import {animateStateTrigger, listStateTrigger, showStateTrigger} from './animations';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,17 @@ import {animateStateTrigger, showStateTrigger} from './animations';
   styleUrls: ['./app.component.css'],
   animations: [
     showStateTrigger,
-    animateStateTrigger
+    animateStateTrigger,
+    listStateTrigger
   ]
 })
 export class AppComponent {
   isShown = false;
   width = 400;
   animate = false;
+  testResults = [];
+
+  onAddElement() {
+    this.testResults.push(Math.random());
+  }
 }

@@ -8,6 +8,8 @@
 <p
   [@animateState]="animate ? 'animated' : 'noAnimation'"
   [ngStyle]="{'width.px': width}">shrink me</p>
+<hr>
+<button (click)="onAddElement()">Add Element</button>
 
 <!-- ###
 It doesn’t matter what names you use for the state here, they do not exist.
@@ -17,3 +19,7 @@ But by switching to the states (even though they are not defined) will trigger t
 !IMPORTANT:: You don't need to define the states for this
 
  ### -->
+<div
+  *ngFor="let testResult of testResults"
+  @listState
+  class="test-result">{{ testResult }}</div>
